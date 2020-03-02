@@ -1,0 +1,29 @@
+<div>
+  <table style="overflow-x:auto;">
+    <thead>
+      <tr>
+        <th><button (click)="changeBookType(0)">Magazine</button></th>
+        <th><button (click)="changeBookType(1)">Novel</button></th>
+      </tr>
+      <tr>
+        <th *ngFor="let item of headers">{{ item.name }}</th>
+        <th *ngIf="bookType == 0">Next Release Date</th>
+        <th *ngIf="bookType == 1">Story Summary</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of books">
+        <th>{{ item.bookId }}</th>
+        <td>{{ item.name }}</td>
+        <td>{{ item.author.name }}</td>
+        <td>{{ item.category }}</td>
+        <td>{{ item.numberOfPages }}</td>
+        <td>{{ item.price }} $</td>
+        <td>{{ item.totalUnitSold }}</td>
+        <td>{{ item.publicationDate }}</td>
+        <td *ngIf="bookType == 0">{{ item.netReleaseDate }}</td>
+        <td *ngIf="bookType == 1">{{ item.storySummary }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
